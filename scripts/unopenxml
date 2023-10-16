@@ -1,2 +1,2 @@
 #!/bin/sh
-java -jar /usr/local/bin/tika.jar -t "$1"
+java -jar ./bin/tika-app-2.9.0.jar -t "$1"
