@@ -39,7 +39,7 @@ jobs:
           done
 
       - name: check to have xlsx
-        if: env.HAS_XLSX == "false"
+        if: env.HAS_XLSX == 'false'
         run: echo "no xlsx files"
 
       - name: Fetch base branch
@@ -47,14 +47,14 @@ jobs:
         run: git fetch origin ${BASE_BRANCH}:${BASE_BRANCH}
 
       - name: Set up JDK 17
-        if: env.HAS_XLSX == "true"
+        if: env.HAS_XLSX == 'true'
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
 
       - name: Run actions using diff_files
-        if: env.HAS_XLSX == "true"
+        if: env.HAS_XLSX == 'true'
         run: |
           git config --global diff.openxml.textconv ./scripts/unopenxml
 
@@ -63,7 +63,7 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
 
       - name: comment
-        if: env.HAS_XLSX == "true"
+        if: env.HAS_XLSX == 'true'
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
