@@ -43,7 +43,7 @@ jobs:
         run: echo "no xlsx files"
 
       - name: Fetch base branch
-        if: env.HAS_XLSX == "true"
+        if: env.HAS_XLSX == 'true'
         run: git fetch origin ${BASE_BRANCH}:${BASE_BRANCH}
 
       - name: Set up JDK 17
