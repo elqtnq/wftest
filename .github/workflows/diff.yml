@@ -78,6 +78,3 @@ jobs:
 
             </details>
 
-
-https://docs.github.com/ja/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif
-https://docs.github.com/ja/actions/learn-github-actions/contexts#github-context
