@@ -59,7 +59,11 @@ jobs:
           git config --global diff.openxml.textconv ./scripts/unopenxml
 
           echo "DIFF<<EOF" >> $GITHUB_ENV
-          git diff ${BASE_BRANCH} HEAD -- "${DIFF_PATH}" >> $GITHUB_ENV
+          # git diff ${BASE_BRANCH} HEAD -- "${DIFF_PATH}" >> $GITHUB_ENV
+          for n in $(git diff --name-only origin/${GITHUB_BASE_REF}...origin/${GITHUB_HEAD_REF} | grep xlsx)
+          do
+              git diff ${BASE_BRANCH} HEAD -- "${n}" >> $GITHUB_ENV
+          done
           echo "EOF" >> $GITHUB_ENV
 
       - name: comment
