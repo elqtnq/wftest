@@ -25,7 +25,7 @@ jobs:
 
       - name: echo filenames
         run: |
-          echo $(git diff --name-only origin/${GITHUB_BASE_REF}...origin/${GITHUB_HEAD_REF})
+          echo $(git diff --name-only origin/${GITHUB_BASE_REF}...origin/${GITHUB_HEAD_REF} | grep xlsx)
       
       - name: diff filenames
         run: |
